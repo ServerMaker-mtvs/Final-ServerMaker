@@ -3,28 +3,27 @@ package com.ohgiraffers.MemberService;
 public class CheckMemberId {// 재민님
 
     public void CheckBlankId(String id){ //Null값이거나 공백,특수 문자를 포함한경우 오류처리
-        String patternBlank1= "/\\W|\\s/g"; //
+        String patternBlank1= "/\\W|\\s/"; //
         /*
           \W 알파벳이나 숫자를 제외한 문자
           | or
-          \s 공백문자
-          를 포함하는 문자패턴을 검색
-          /g 처음부터 끝까지의 모든문자열
+          \s/ 공백문자
+
          */
         if(id==null){
             throw new IllegalArgumentException("ID를 입력해 주세요.");
-        }else if(id.matches(patternBlank1)){
+        }else if(!id.matches(patternBlank1)){
             throw new IllegalArgumentException("ID는 공백문자 또는 특수문자를 포함할 수 없습니다.");
         }
+
     }
 
     public void CheckPatternId(String id){ //ID 패턴 탐지
-        String pattern1 = " /^[A-Za-z][A-Za-z0-9]{5,12}$/g ";
+        String pattern1 = " /^[A-Za-z][A-Za-z0-9]{5,12}$/ ";
         /*
             / ^[A-Za-z]+ A~Z, a~z 로 시작되고
             [A-Za-z0-9] 영어 대문자,소문자,숫자를 포함하는
-            {5,12} 5~12자
-            /g 처음부터 끝까지의 모든문자열
+            {5,12}/ 5~12자
          */
         if(!id.matches(pattern1)){
             /*
