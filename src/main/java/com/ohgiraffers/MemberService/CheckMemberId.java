@@ -19,7 +19,7 @@ public class CheckMemberId {// 재민님
     }
 
     public void CheckPatternId(String id){ //ID 패턴 탐지
-        String pattern1 = " /^[A-Za-z][A-Za-z0-9]{5,12}$/ ";
+        String pattern1 = "/^[a-zA-Z]{1}[a-zA-Z0-9]{4,11}$/";
         /*
             / ^[A-Za-z]+ A~Z, a~z 로 시작되고
             [A-Za-z0-9] 영어 대문자,소문자,숫자를 포함하는
