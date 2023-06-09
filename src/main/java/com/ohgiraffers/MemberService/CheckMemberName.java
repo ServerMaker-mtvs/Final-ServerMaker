@@ -1,6 +1,6 @@
 package com.ohgiraffers.MemberService;
 
-public class CheckMemberName {
+public class CheckMemberName {//재민님
 
-    //재민님
+
 }
