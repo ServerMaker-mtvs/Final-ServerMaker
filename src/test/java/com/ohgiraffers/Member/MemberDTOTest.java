@@ -1,4 +1,4 @@
 package com.ohgiraffers.Member;
 
-public class MemberDTO {
+public class MemberDTOTest {
 }
