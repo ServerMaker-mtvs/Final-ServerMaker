@@ -22,7 +22,11 @@
         <br>
         <br>
         <label>비밀번호 : </label>
-        <input type="password" name="memberPwd">
+        <input type="password" name="memberPwd1">
+        <br>
+        <br>
+        <label>비밀번호 확인 : </label>
+        <input type="password" name="memberPwd2">
         <br>
         <br>
         <label>생년월일 : </label>
