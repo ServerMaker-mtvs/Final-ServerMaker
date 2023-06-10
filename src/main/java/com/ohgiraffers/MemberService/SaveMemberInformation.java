@@ -20,6 +20,7 @@ public class SaveMemberInformation {
             throw new IllegalArgumentException(e);
         }
 
+
         // Id 유효성 확인
         try {
             CheckMemberId checkMemberId = new CheckMemberId();
@@ -36,4 +37,5 @@ public class SaveMemberInformation {
             throw new IllegalArgumentException(e);
         }
     }
+
 }
