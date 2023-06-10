@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class CheckMemberIdTest {
+public class CheckMemberIdTest { //정재민
     private CheckMemberId checkmemberid;
     private Exception e;
 
@@ -41,8 +41,8 @@ public class CheckMemberIdTest {
     public void inputBalnkArgument(){ //null이 입력되었을때.
 
         //given
-        String id1=" ";
-        String id2="!!!!!";
+        String id1="ser ver";
+        String id2="server!";
         //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
@@ -64,10 +64,8 @@ public class CheckMemberIdTest {
     public void inputPatternArgument(){ //패턴검증
         //given
         String id1="1server"; //첫글자가 숫자
-        String id2="server1!"; //특수문자포함
-        String id3="sever 1"; //띄어쓰기 포함
-        String id4="serv"; //5글자
-        String id5="asdfasdfasdfa"; //13글자
+        String id2="serv"; //5글자
+        String id3="asdfasdfasdfa"; //13글자
         //when
         e= Assertions.assertThrows( //id1
                 IllegalArgumentException.class,
@@ -85,18 +83,6 @@ public class CheckMemberIdTest {
                 IllegalArgumentException.class,
                 () -> checkmemberid.CheckPatternId(id3)
         );
-        System.out.println(e);
-
-        e= Assertions.assertThrows( //id4
-                IllegalArgumentException.class,
-                () -> checkmemberid.CheckPatternId(id4)
-        );
-        System.out.println(e);
-
-        e= Assertions.assertThrows( //id5
-                IllegalArgumentException.class,
-                () -> checkmemberid.CheckPatternId(id5)
-                );
         System.out.println(e);
         //then
     }

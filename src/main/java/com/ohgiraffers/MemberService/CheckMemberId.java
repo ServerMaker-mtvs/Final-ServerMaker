@@ -1,6 +1,6 @@
 package com.ohgiraffers.MemberService;
 
-public class CheckMemberId {// 재민님
+public class CheckMemberId {// 정재민
 
     public void CheckBlankId(String id){ //Null값이거나 공백,특수 문자를 포함한경우 오류처리
         String patternBlank1= "/\\W|\\s/"; //
