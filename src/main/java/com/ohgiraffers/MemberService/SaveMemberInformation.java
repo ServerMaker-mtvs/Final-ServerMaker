@@ -20,14 +20,29 @@ public class SaveMemberInformation {
         Date parDate=parseFm.parse(memberBirth);
 
         MemberDTO dto=new MemberDTO(memberName,memberId,memberPwd1,parDate);
-        MemberRepository memberRepository=MemberRepository.getInstance();
+        MemberRepository memberRepository=MemberRepository.getInstance(); // 모든 검증 로직이 다끝나고 나면 Repository에 접근
 
-        // 나이 유효성 확인
+
+        // Id 유효성 확인
+        /*
         try {
-            CheckMemberBirthday checkMemberBirthday = new CheckMemberBirthday();
-            checkMemberBirthday.checkBirth(memberBirth);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
+            CheckMemberId checkMemberId = new CheckMemberId();
+            System.out.println("req id : "+memberId);
+            checkMemberId.CheckBlankId(memberId);
+            checkMemberId.CheckPatternId(memberId);
+            checkMemberId.CheckEqualId(memberId,memberId);
+
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e);
+        }
+        */
+        // 이름 유효성 확인
+        try {
+            CheckMemberName checkMemberName = new CheckMemberName();
+            checkMemberName.CheckBlankName(memberName);
+            checkMemberName.CheckPatternName(memberName);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e);
         }
 
         //  비밀번호 유효성 확인
@@ -38,29 +53,14 @@ public class SaveMemberInformation {
             throw new IllegalArgumentException(e);
         }
 
-
-        // Id 유효성 확인
+        // 나이 유효성 확인
         try {
-            CheckMemberId checkMemberId = new CheckMemberId();
-            checkMemberId.CheckBlankId(memberId);
-            checkMemberId.CheckPatternId(memberId);
-            checkMemberId.CheckEqualId(memberId,memberId);
-
-        } catch (Exception e) {
-            throw new IllegalArgumentException(e);
+            CheckMemberBirthday checkMemberBirthday = new CheckMemberBirthday();
+            checkMemberBirthday.checkBirth(memberBirth);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
-
-        // 이름 유효성 확인
-        try {
-            CheckMemberName checkMemberName = new CheckMemberName();
-            checkMemberName.CheckBlankName(memberName);
-            checkMemberName.CheckPatternName(memberName);
-        } catch (Exception e) {
-            throw new IllegalArgumentException(e);
-        }
-
-
-        memberRepository.save(dto);
+        memberRepository.save(dto); //데이터 저장
     }
 
 }
