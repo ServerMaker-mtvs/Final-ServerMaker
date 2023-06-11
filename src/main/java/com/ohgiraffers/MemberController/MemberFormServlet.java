@@ -38,7 +38,7 @@ public class MemberFormServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        RequestDispatcher dispatcher=req.getRequestDispatcher(""); //저장이 된 후 페이지 이동
+        RequestDispatcher dispatcher=req.getRequestDispatcher("/himember"); //저장이 된 후 페이지 이동
         dispatcher.forward(req,resp);
     }
     //유열님
