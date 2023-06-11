@@ -34,7 +34,7 @@ public class CheckMemberId {// 정재민
             equals 연산으로 비교하여, 동일 값을 가질경우
             IllegalArgumentException 발생
          */
-
+        //향상된 for문 이용 비교
         for(String equalId : dateId){
             if(id1.equals(equalId)){
                 throw new IllegalArgumentException("중복된 아이디 입니다.");

@@ -23,7 +23,7 @@ public class SaveMemberInformation {
         MemberRepository memberRepository=MemberRepository.getInstance(); // 모든 검증 로직이 다끝나고 나면 Repository에 접근
 
 
-        // 이름 유효성 확인
+        // 이름 유효성 확인.
         try {
             CheckMemberName checkMemberName = new CheckMemberName();
             checkMemberName.checkBlankName(memberName);
