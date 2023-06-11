@@ -1,10 +1,5 @@
 package com.ohgiraffers.MemberService;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static java.util.regex.Pattern.matches;
-
 public class CheckMemberId {// 정재민
 
     public void CheckBlankId(String id){ //Null값일때 오류처리
@@ -42,4 +37,4 @@ public class CheckMemberId {// 정재민
         }
     }
 }
-//https://regex101.com/
+//https://regex101.com
