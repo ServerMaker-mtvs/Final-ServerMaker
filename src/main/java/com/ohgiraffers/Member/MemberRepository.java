@@ -41,8 +41,22 @@ public class MemberRepository {
         values()는 map이 가지고 있는 value를 Collection 형태로 반환
         value 값만 얻을 수 있다
      */
+
+    // 회원의 객체가 리스트로 반환
     public List<MemberDTO> findAll() {
         return new ArrayList<>(store.values());
+    }
+
+
+    // 회원의 ID가 리스트로 반환
+    public List<String> findAllId() {
+        List<MemberDTO> memberDTO = new ArrayList<>(store.values());
+        List<String> memberIdList = new ArrayList<String>();
+
+        for (MemberDTO member : memberDTO) {
+            memberIdList.add(member.getId());
+        }
+        return memberIdList;
     }
 
     // 테스트에서만 사용
