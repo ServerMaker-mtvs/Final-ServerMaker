@@ -43,22 +43,30 @@ public class CheckMemberIdTest { //정재민
         //given
         String id1="ser ver";
         String id2="server!";
+        String id3="server1"; //void 메소드 검증을 위해 정상값 입력  (Test는 실패유도)
+
         //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkmemberid.checkBlankId(id1)
+                () -> checkmemberid.checkPatternId(id1)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkmemberid.checkBlankId(id2)
+                () -> checkmemberid.checkPatternId(id2)
         );
         System.out.println(e);
 
-        //then
-    }
 
+        //then
+        //Test 에러(정상작동)
+//        e= Assertions.assertThrows(
+//                IllegalArgumentException.class,
+//                () -> checkmemberid.checkPatternId(id3)
+//        );
+//        System.out.println(e);
+    }
     @DisplayName("ID의 첫글자는 알파벳으로 시작하고 대문자,소문자,숫자를 포함")
     @Test
     public void inputPatternArgument(){ //패턴검증
@@ -66,6 +74,7 @@ public class CheckMemberIdTest { //정재민
         String id1="1server"; //첫글자가 숫자
         String id2="serv"; //5글자
         String id3="asdfasdfasdfa"; //13글자
+        String id4="server1"; ////void 메소드 검증을 위해 정상값 입력 (Test는 실패유도)
         //when
         e= Assertions.assertThrows( //id1
                 IllegalArgumentException.class,
@@ -85,6 +94,12 @@ public class CheckMemberIdTest { //정재민
         );
         System.out.println(e);
         //then
+        //Test에러 (정상작동)
+//        e= Assertions.assertThrows( //id4
+//                IllegalArgumentException.class,
+//                () -> checkmemberid.checkPatternId(id4)
+//        );
+//        System.out.println(e);
     }
 
     @DisplayName("입력받은 2개의 String 값 비교 후 동일값 일 떄 IllegalArgumentException 발생 ")
@@ -94,13 +109,20 @@ public class CheckMemberIdTest { //정재민
         //given
         String id1="server1";
         String id2="server1";
+        String id3="server2";
         //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkmemberid.CheckEqualId(id1, id2)
+                () -> checkmemberid.checkEqualId(id1, id2)
         );
         System.out.println(e);
 
         //then
+        //Test에러 (정상작동)
+//        e= Assertions.assertThrows(
+//                IllegalArgumentException.class,
+//                () -> checkmemberid.checkEqualId(id1, id3)
+//        );
+//        System.out.println(e);
     }
 }
