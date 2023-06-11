@@ -7,7 +7,7 @@ public class SaveMemberInformation {
         // 나이 유효성 확인
         try {
             CheckMemberBirthday checkMemberBirthday = new CheckMemberBirthday();
-            checkMemberBirthday.checkBirthday(data.unCheckedBirthday);
+            checkMemberBirthday.checkBirth(data.unCheckedBirth);
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -20,11 +20,11 @@ public class SaveMemberInformation {
             throw new IllegalArgumentException(e);
         }
 
-
         // Id 유효성 확인
         try {
             CheckMemberId checkMemberId = new CheckMemberId();
-            checkMemberId.checkId(data.unCheckedId);
+            checkMemberId.checkBlankId(data.unCheckedId);
+            checkMemberId.checkPatternId(data.unCheckedId);
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }
@@ -32,7 +32,8 @@ public class SaveMemberInformation {
         // 이름 유효성 확인
         try {
             CheckMemberName checkMemberName = new CheckMemberName();
-            checkMemberName.checkName(data.unCheckedName);
+            checkMemberName.checkBlankName(data.unCheckedName);
+            checkMemberName.checkPatternName(data.unCheckedName);
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }

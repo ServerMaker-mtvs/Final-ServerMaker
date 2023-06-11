@@ -2,7 +2,7 @@ package com.ohgiraffers.MemberService;
 
 public class CheckMemberId {// 정재민
 
-    public void CheckBlankId(String id){ //Null값이거나 공백,특수 문자를 포함한경우 오류처리
+    public void checkBlankId(String id){ //Null값이거나 공백,특수 문자를 포함한경우 오류처리
         String patternBlank1= "/\\W|\\s/"; //
         /*
           \W 알파벳이나 숫자를 제외한 문자
@@ -18,7 +18,7 @@ public class CheckMemberId {// 정재민
 
     }
 
-    public void CheckPatternId(String id){ //ID 패턴 탐지
+    public void checkPatternId(String id){ //ID 패턴 탐지
         String pattern1 = "/^[a-zA-Z]{1}[a-zA-Z0-9]{4,11}$/";
         /*
             / ^[A-Za-z]+ A~Z, a~z 로 시작되고

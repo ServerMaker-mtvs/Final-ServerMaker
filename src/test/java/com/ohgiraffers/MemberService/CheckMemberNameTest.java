@@ -31,7 +31,7 @@ public class CheckMemberNameTest { //정재민
         //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkMemberName.CheckBlankName(name1)
+                () -> checkMemberName.checkBlankName(name1)
         );
         System.out.println(e);
 
@@ -48,19 +48,19 @@ public class CheckMemberNameTest { //정재민
         //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkMemberName.CheckBlankName(name1)
+                () -> checkMemberName.checkBlankName(name1)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkMemberName.CheckBlankName(name1)
+                () -> checkMemberName.checkBlankName(name1)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkMemberName.CheckBlankName(name3)
+                () -> checkMemberName.checkBlankName(name3)
         );
         System.out.println(e);
 
@@ -78,31 +78,31 @@ public class CheckMemberNameTest { //정재민
         //when
         e= Assertions.assertThrows( //id1
                 IllegalArgumentException.class,
-                () -> checkMemberName.CheckPatternName(name1)
+                () -> checkMemberName.checkPatternName(name1)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows( //id2
                 IllegalArgumentException.class,
-                () -> checkMemberName.CheckPatternName(name2)
+                () -> checkMemberName.checkPatternName(name2)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows( //id3
                 IllegalArgumentException.class,
-                () -> checkMemberName.CheckPatternName(name3)
+                () -> checkMemberName.checkPatternName(name3)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows( //id3
                 IllegalArgumentException.class,
-                () -> checkMemberName.CheckPatternName(name4)
+                () -> checkMemberName.checkPatternName(name4)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows( //id3
                 IllegalArgumentException.class,
-                () -> checkMemberName.CheckPatternName(name5)
+                () -> checkMemberName.checkPatternName(name5)
         );
         System.out.println(e);
         //then
