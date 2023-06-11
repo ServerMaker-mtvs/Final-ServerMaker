@@ -18,7 +18,7 @@ public class SaveMemberInformation {
         // Id 유효성 확인
         try {
             CheckMemberId checkMemberId = new CheckMemberId();
-            checkMemberId.CheckPatternId(data.unCheckedId);
+            checkMemberId.checkPatternId(data.unCheckedId);
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }
@@ -26,7 +26,7 @@ public class SaveMemberInformation {
         // 이름 유효성 확인
         try {
             CheckMemberName checkMemberName = new CheckMemberName();
-            checkMemberName.CheckPatternName(data.unCheckedName);
+            checkMemberName.checkPatternName(data.unCheckedName);
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }
