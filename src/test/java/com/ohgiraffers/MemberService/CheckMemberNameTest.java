@@ -27,6 +27,7 @@ public class CheckMemberNameTest { //정재민
 
         //given
         String name1=null; //입력값이 null일때
+        String name2="홍길동"; //정상값 입력시 Test 가 fail 나는지 확인
 
         //when
         e= Assertions.assertThrows(
@@ -35,32 +36,9 @@ public class CheckMemberNameTest { //정재민
         );
         System.out.println(e);
 
-        //then
-    }
-    @DisplayName("입력받은 name의 값이 공백,특수문자,숫자일때 IllegalArgumentException 발생")
-    @Test
-    public void inputBalnkArgument(){ //null이 입력되었을때.
-
-        //given
-        String name1=" ";
-        String name2="홍길동!";
-        String name3="홍길동1";
-        //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkMemberName.CheckBlankName(name1)
-        );
-        System.out.println(e);
-
-        e= Assertions.assertThrows(
-                IllegalArgumentException.class,
-                () -> checkMemberName.CheckBlankName(name1)
-        );
-        System.out.println(e);
-
-        e= Assertions.assertThrows(
-                IllegalArgumentException.class,
-                () -> checkMemberName.CheckBlankName(name3)
+                () -> checkMemberName.CheckBlankName(name2)
         );
         System.out.println(e);
 
@@ -75,37 +53,46 @@ public class CheckMemberNameTest { //정재민
         String name3="홍길동ㅎ"; //자음 포함
         String name4="홍";//1글자
         String name5="홍길동홍길동홍길동홍길동홍길동홍길동홍길동홍길동홍길동홍길동홍";//31자
+        String name6="홍길동"; //void 메소드 검증을 위해 정상값 입력
+
         //when
-        e= Assertions.assertThrows( //id1
+        e= Assertions.assertThrows( //name1
                 IllegalArgumentException.class,
                 () -> checkMemberName.CheckPatternName(name1)
         );
         System.out.println(e);
 
-        e= Assertions.assertThrows( //id2
+        e= Assertions.assertThrows( //name2
                 IllegalArgumentException.class,
                 () -> checkMemberName.CheckPatternName(name2)
         );
         System.out.println(e);
 
-        e= Assertions.assertThrows( //id3
+        e= Assertions.assertThrows( //name3
                 IllegalArgumentException.class,
                 () -> checkMemberName.CheckPatternName(name3)
         );
         System.out.println(e);
 
-        e= Assertions.assertThrows( //id3
+        e= Assertions.assertThrows( //name4
                 IllegalArgumentException.class,
                 () -> checkMemberName.CheckPatternName(name4)
         );
         System.out.println(e);
 
-        e= Assertions.assertThrows( //id3
+        e= Assertions.assertThrows( //name5
                 IllegalArgumentException.class,
                 () -> checkMemberName.CheckPatternName(name5)
         );
         System.out.println(e);
+
         //then
+        //오류발생 안함 확인 ( Test는 실패)
+//        e= Assertions.assertThrows( //name6
+//                IllegalArgumentException.class,
+//                () -> checkMemberName.CheckPatternName(name6)
+//        );
+//        System.out.println(e);
     }
 
 
