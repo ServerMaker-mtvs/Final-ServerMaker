@@ -1,18 +1,26 @@
 package com.ohgiraffers.MemberService;
 
+import com.ohgiraffers.Member.MemberDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CheckMemberIdTest { //정재민
-    private CheckMemberId checkmemberid;
+    private CheckMemberId checkMemberId;
     private Exception e;
+    private List<String> dataId;
+    private List<String> dataId2;
 
     @BeforeEach
     public void setUp(){
-        this.checkmemberid =new CheckMemberId();
+        this.checkMemberId =new CheckMemberId();
         this.e=new Exception();
+        this.dataId=new ArrayList<String>();
+        this.dataId2=new ArrayList<String>();
     }
 
     //검증내용
@@ -30,7 +38,7 @@ public class CheckMemberIdTest { //정재민
         //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkmemberid.checkBlankId(id1)
+                () -> checkMemberId.checkBlankId(id1)
         );
         System.out.println(e);
 
@@ -48,13 +56,13 @@ public class CheckMemberIdTest { //정재민
         //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkmemberid.checkPatternId(id1)
+                () -> checkMemberId.checkPatternId(id1)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkmemberid.checkPatternId(id2)
+                () -> checkMemberId.checkPatternId(id2)
         );
         System.out.println(e);
 
@@ -63,7 +71,7 @@ public class CheckMemberIdTest { //정재민
         //Test 에러(정상작동)
 //        e= Assertions.assertThrows(
 //                IllegalArgumentException.class,
-//                () -> checkmemberid.checkPatternId(id3)
+//                () -> checkMemberId.checkPatternId(id3)
 //        );
 //        System.out.println(e);
     }
@@ -78,26 +86,26 @@ public class CheckMemberIdTest { //정재민
         //when
         e= Assertions.assertThrows( //id1
                 IllegalArgumentException.class,
-                () -> checkmemberid.checkPatternId(id1)
+                () -> checkMemberId.checkPatternId(id1)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows( //id2
                 IllegalArgumentException.class,
-                () -> checkmemberid.checkPatternId(id2)
+                () -> checkMemberId.checkPatternId(id2)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows( //id3
                 IllegalArgumentException.class,
-                () -> checkmemberid.checkPatternId(id3)
+                () -> checkMemberId.checkPatternId(id3)
         );
         System.out.println(e);
         //then
         //Test에러 (정상작동)
 //        e= Assertions.assertThrows( //id4
 //                IllegalArgumentException.class,
-//                () -> checkmemberid.checkPatternId(id4)
+//                () -> checkMemberId.checkPatternId(id4)
 //        );
 //        System.out.println(e);
     }
@@ -108,12 +116,13 @@ public class CheckMemberIdTest { //정재민
 
         //given
         String id1="server1";
-        String id2="server1";
-        String id3="server2";
+        dataId.add("server1"); //List 타입에 검증용 값 입력
+        dataId2.add("server2"); //List 타입2에 검증용 정상 값 입력
+
         //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkmemberid.checkEqualId(id1, id2)
+                () -> checkMemberId.checkEqualId(id1, dataId)
         );
         System.out.println(e);
 
@@ -121,7 +130,7 @@ public class CheckMemberIdTest { //정재민
         //Test에러 (정상작동)
 //        e= Assertions.assertThrows(
 //                IllegalArgumentException.class,
-//                () -> checkmemberid.checkEqualId(id1, id3)
+//                () -> checkMemberId.checkEqualId(id1, dataId2)
 //        );
 //        System.out.println(e);
     }
