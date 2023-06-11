@@ -2,18 +2,20 @@ package com.ohgiraffers.MemberService;
 
 public class CheckMemberId {// 정재민
 
-    public void CheckBlankId(String id){ //Null값일때 오류처리
+    public void CheckBlankId(String id){
+        //입력값이 null일때
         if(id==null){
             throw new IllegalArgumentException("ID를 입력해 주세요.");
         }
     }
 
     public void CheckPatternId(String id){ //ID 패턴 탐지
-        String pattern1 = "^[a-zA-Z]{1}[a-zA-Z0-9_]{4,11}$";
+        String pattern1 = "^[a-zA-Z]{1}[a-zA-Z0-9]{4,11}$";
         /*
             ^[A-Za-z]+ A~Z, a~z 로 시작되고
             [A-Za-z0-9] 영어 대문자,소문자,숫자를 포함하는
             {5,12}/ 5~12자
+            위의 패턴에 의해 특수문자 공백문자는 제외됨
          */
         if(!id.matches(pattern1)){
             /*
@@ -21,8 +23,6 @@ public class CheckMemberId {// 정재민
                 IllegalArgumentException 발생
              */
             throw new IllegalArgumentException("형식에 맞지않는 ID 입니다.");
-        }else{
-            return;
         }
     }
 

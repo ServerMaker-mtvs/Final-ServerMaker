@@ -4,7 +4,6 @@ public class CheckMemberName {//정재민
     public void CheckBlankName(String id){
 
         //입력값이 null일때
-
         if(id==null){
             throw new IllegalArgumentException("이름을 입력해 주세요.");
         }
@@ -15,7 +14,7 @@ public class CheckMemberName {//정재민
         /*
             ^[가-힣] 가~ 힣 까지 모든 조합된 한글 (ㄱ,ㄴ,ㄷ,ㅏ,ㅑ등 불가능)
             {2,30}$ 2자~30자 내의
-            문자패턴 검색
+            숫자나, 공백, 특수문자는 위에 패턴에 의해 제외됨
          */
         if(!id.matches(pattern1)){
             /*
