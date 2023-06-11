@@ -22,16 +22,13 @@ public class SaveMemberInformation {
         MemberDTO dto=new MemberDTO(memberName,memberId,memberPwd1,parDate);
         MemberRepository memberRepository=MemberRepository.getInstance(); // 모든 검증 로직이 다끝나고 나면 Repository에 접근
 
-
         // Id 유효성 확인
         /*
         try {
             CheckMemberId checkMemberId = new CheckMemberId();
-            System.out.println("req id : "+memberId);
             checkMemberId.CheckBlankId(memberId);
             checkMemberId.CheckPatternId(memberId);
             checkMemberId.CheckEqualId(memberId,memberId);
-
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }

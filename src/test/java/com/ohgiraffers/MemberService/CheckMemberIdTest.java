@@ -30,7 +30,7 @@ public class CheckMemberIdTest { //정재민
         //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkmemberid.CheckBlankId(id1)
+                () -> checkmemberid.checkBlankId(id1)
         );
         System.out.println(e);
 
@@ -46,13 +46,13 @@ public class CheckMemberIdTest { //정재민
         //when
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkmemberid.CheckBlankId(id1)
+                () -> checkmemberid.checkBlankId(id1)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> checkmemberid.CheckBlankId(id2)
+                () -> checkmemberid.checkBlankId(id2)
         );
         System.out.println(e);
 
@@ -69,19 +69,19 @@ public class CheckMemberIdTest { //정재민
         //when
         e= Assertions.assertThrows( //id1
                 IllegalArgumentException.class,
-                () -> checkmemberid.CheckPatternId(id1)
+                () -> checkmemberid.checkPatternId(id1)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows( //id2
                 IllegalArgumentException.class,
-                () -> checkmemberid.CheckPatternId(id2)
+                () -> checkmemberid.checkPatternId(id2)
         );
         System.out.println(e);
 
         e= Assertions.assertThrows( //id3
                 IllegalArgumentException.class,
-                () -> checkmemberid.CheckPatternId(id3)
+                () -> checkmemberid.checkPatternId(id3)
         );
         System.out.println(e);
         //then

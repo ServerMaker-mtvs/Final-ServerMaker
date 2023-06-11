@@ -1,7 +1,7 @@
 package com.ohgiraffers.MemberService;
 
 public class CheckMemberName {//정재민
-    public void CheckBlankName(String id){
+    public void checkBlankName(String id){
         String patternBlank1= "/\\W|\\s/";
         /*
           \W 알파벳이나 숫자를 제외한 문자
@@ -16,7 +16,7 @@ public class CheckMemberName {//정재민
         }
     }
 
-    public void CheckPatternName(String id){ //ID 패턴 탐지
+    public void checkPatternName(String id){ //ID 패턴 탐지
         String pattern1 = "/^[가-힣]{2,30}$/";
         /*
             /^[가-힣] 가~ 힣 까지 모든 조합된 한글 (ㄱ,ㄴ,ㄷ,ㅏ,ㅑ등 불가능)

@@ -70,4 +70,36 @@ public class MemberRepositoryTest {
         List<MemberDTO> result = memberRepository.findAll();
         Assertions.assertEquals(2, result.size());
     }
+
+    @DisplayName("임의로 멤버 2명을 생성 후 저장하고, 생성한 멤버의 ID와 저장한 멤버의 ID가 모두 맞게 나오는지 확인")
+    @Test
+    void findAllId() throws ParseException {
+        // 문자열
+        String member1DateStr = "2023-06-01";
+        String member2DateStr = "2003-05-30";
+        // 포맷터
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        // 문자열 -> Date
+        Date member1date = formatter.parse(member1DateStr);
+        Date member2date = formatter.parse(member2DateStr);
+
+
+        //given
+        MemberDTO member1 = new MemberDTO("member1Name", "member1Id", "member1Pwd", member1date);
+        MemberDTO member2 = new MemberDTO("member2Name", "member2Id", "member2Pwd", member2date);
+
+        //when
+        MemberDTO savedMember1 = memberRepository.save(member1);
+        MemberDTO savedMember2 = memberRepository.save(member2);
+
+        //then
+        List<String> result = memberRepository.findAllId();
+
+        // 2명이 맞게 저장되었는지 확인
+        Assertions.assertEquals(2, result.size());
+
+        // 생성한 멤버 Id와 저장한 멤버 Id가 같은지 확인
+        Assertions.assertEquals("member1Id", result.get(0));
+        Assertions.assertEquals("member2Id", result.get(1));
+    }
 }
