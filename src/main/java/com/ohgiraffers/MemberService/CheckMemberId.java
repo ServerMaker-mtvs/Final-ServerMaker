@@ -1,5 +1,7 @@
 package com.ohgiraffers.MemberService;
 
+import java.util.List;
+
 public class CheckMemberId {// 정재민
 
     public void checkBlankId(String id){
@@ -26,14 +28,17 @@ public class CheckMemberId {// 정재민
         }
     }
 
-    public void checkEqualId(String id1, String id2){ //중복 ID 검사
+    public void checkEqualId(String id1, List<String> dateId){ //중복 ID 검사
         /*
             문자열 2개를 입력받아
             equals 연산으로 비교하여, 동일 값을 가질경우
             IllegalArgumentException 발생
          */
-        if(id1.equals(id2)){
-            throw new IllegalArgumentException("중복된 아이디 입니다.");
+        //향상된 for문 이용 비교
+        for(String equalId : dateId){
+            if(id1.equals(equalId)){
+                throw new IllegalArgumentException("중복된 아이디 입니다.");
+            }
         }
     }
 }

@@ -22,22 +22,23 @@ public class SaveMemberInformation {
         MemberDTO dto=new MemberDTO(memberName,memberId,memberPwd1,parDate);
         MemberRepository memberRepository=MemberRepository.getInstance(); // 모든 검증 로직이 다끝나고 나면 Repository에 접근
 
-        // Id 유효성 확인
-        /*
+
+        // 이름 유효성 확인.
         try {
-            CheckMemberId checkMemberId = new CheckMemberId();
-            checkMemberId.CheckBlankId(memberId);
-            checkMemberId.CheckPatternId(memberId);
-            checkMemberId.CheckEqualId(memberId,memberId);
+            CheckMemberName checkMemberName = new CheckMemberName();
+            checkMemberName.checkBlankName(memberName);
+            checkMemberName.checkPatternName(memberName);
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }
-        */
-        // 이름 유효성 확인
+
+
+        // Id 유효성 확인
         try {
-            CheckMemberName checkMemberName = new CheckMemberName();
-            checkMemberName.CheckBlankName(memberName);
-            checkMemberName.CheckPatternName(memberName);
+            CheckMemberId checkMemberId = new CheckMemberId();
+            checkMemberId.checkBlankId(memberId);
+            checkMemberId.checkPatternId(memberId);
+            checkMemberId.checkEqualId(memberId,memberRepository.findAllId());
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }
