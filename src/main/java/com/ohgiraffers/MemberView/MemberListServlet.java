@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -47,7 +49,7 @@ public class MemberListServlet extends HttpServlet {
                 .append("id\n")
                 .append("</th>\n")
                 .append("<th>\n")
-                .append("생일\n")
+                .append("생년월일\n")
                 .append("</th>\n")
                 .append("<tbody>\n");
 
@@ -59,12 +61,13 @@ public class MemberListServlet extends HttpServlet {
                             .append("<td>\n")
                             .append(member.getId() + "\n")
                             .append("</td>\n")
-                            .append("<td>\n")
-                            .append(member.getBirth() + "\n")
+                            .append("<td>\n");
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                    String strDate = formatter.format(member.getBirth());
+                    responseText.append(strDate + "\n")
                             .append("</td>\n")
                             .append("</tr>\n");
-                 }
-
+                }
                 responseText.append("</tbody>\n")
                         .append("</tbody>\n")
                         .append("</table>\n")
